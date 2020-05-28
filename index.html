@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<style>
+
+body, html {
+  width: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.hero-image {
+  background-position: center;
+  background-attachement: fixed;
+}
+
+.hero-logo { 
+  position: absolute;
+  display: block;
+  top: 5%;
+  width: 30%;
+  left: 5%;
+}
+
+.hero-text { 
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 40px;
+  color: white;
+  font-size: 30px;
+}
+
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 20px 50px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #555;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="hero-image">
+   <img src="/indexImg/background.png" alt="background" width="100%">
+     <div class="hero-logo">
+       <img src="/indexImg/logo.png" alt="logo" width="100%">
+     </div>
+     <div class="hero-text">
+       <h1> 
+       <span style="color:rgb(228,85,31)">AEROSPACE</span> 
+       REDEFINED
+       </h1>
+       <button onclick="cameraStart()">SCAN ME</button>
+     </div>
+</div>
+
+<script>
+function cameraStart() {
+	location.replace("https://raspberrypi.local/qrscan.html") 
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

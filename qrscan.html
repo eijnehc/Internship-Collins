@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Instascan</title>
+    <script type="text/javascript" src="instascan.js"></script>
+  </head>
+  <body>
+    <video width="100%" id="preview" autoplay playsinline></video>
+    <canvas id="camera--sensor"></canvas>    
+
+    <script type="text/javascript">
+      let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror:false});
+      scanner.addListener('scan', function (content) {
+	location.replace(content);
+      });
+      
+      
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        } else {
+          console.error('No cameras found.');
+        }
+      }).catch(function (e) {
+        console.error(e);
+      });
+    </script>
+  </body>
+</html>

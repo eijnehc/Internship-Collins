@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 12px;
+  margin-top: -22px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 50%;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 50%;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(228,85,31,0.8);
+}
+
+.close {
+	cursor: pointer;
+	position: absolute;
+	top:0.5%;
+	right: 0.5%;
+	width: auto;
+	padding: 12 px;
+	color: black;
+	font-size: 18px;
+	// text-decoration: none;
+}
+
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+
+<div class="mySlides fade">
+  <img src="/slideshowImg/Slide1.JPG" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="/slideshowImg/Slide2.JPG" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="/slideshowImg/Slide3.JPG" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+
+<a class="close" onclick="windowClose()">&#10006;</a>
+
+
+<br>
+
+<script type="text/javascript">
+function windowClose() {
+	window.location = 'https://raspberrypi.local'
+}
+</script>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<script type="text/javascript">
+function idleTimer() {
+	var t;
+	//window.onload = resetTimer;
+	window.onmousemove = resetTimer; // catches mouse movements
+	window.onmousedown = resetTimer; // catches mouse movements
+	window.ontouchstart = resetTimer; //catches touchscreen swipes
+	window.onclick = resetTimer; // catches mouse clicks
+	window.onscroll = resetTimer; // catches scrolling
+	window.onkeypress = resetTimer; //catches keyboard actions
+	
+	function reload() {
+		window.location = 'https://raspberrypi.local'; //Reloads the current page
+	}
+
+	function resetTimer() {
+		clearTimeout(t);
+		t= setTimeout(reload, 5000); // time is in milliseconds (1000 is 1 second)
+	}
+}
+
+idleTimer();
+
+</script>
+
+
+</body>
+</html> 
+
+

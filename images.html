@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+.image-container{
+	max-width: 100%;
+	position: relative;
+	margin: auto
+}
+
+.close {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: auto;
+	padding: 10px;
+	colour: black;
+	font-size: 24px;
+	text-decoration: none;
+}
+
+.close:hover{
+	background-color: #ddd;
+}
+
+</style>
+
+<body>
+
+<div class="image-container">
+
+<a class="close" onclick="windowClose()">&#10006;</a>
+
+<img src="/slideshowImg/Slide1.JPG" alt="Slide 1" style = "width:100%">
+
+</div> 
+
+<script type="text/javascript">
+function windowClose() {
+	window.location = 'https://raspberrypi.local'; //redirect the page
+}
+
+</script>
+
+<script type="text/javascript">
+function idleTimer() {
+	var t;
+	//window.onload = resetTimer;
+	window.onmousemove = resetTimer; // catches mouse movements
+	window.onmousedown = resetTimer; // catches mouse movements, touchscreen presses
+	window.ontouchstart = resetTimer; // catches touchscreen swipes as well
+	window.onclick = resetTimer; // catches mouse clicks, touchpad clicks
+	window.onscroll = resetTimer; // catches scrolling
+	window.onkeypress = resetTimer; //catches keyboard actions
+	
+	function reload() {
+		window.location = 'https://raspberrypi.local'; //Reloads the current page
+	}
+
+	function resetTimer() {
+	clearTimeout(t);
+	t= setTimeout(reload, 5000); // time is in milliseconds (1000 is 1 second)
+	}
+}
+idleTimer();
+
+</script>
+
+
+</body>
+
+
+</html>
